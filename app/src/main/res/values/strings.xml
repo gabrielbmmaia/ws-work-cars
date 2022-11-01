@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">ws-work-cars</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="logo_text">WS CARS</string>
+    <string name="email_text">E-mail</string>
+    <string name="example_email_text">example@email.com</string>
+    <string name="senha">Senha</string>
+    <string name="password">********</string>
+    <string name="login">Login</string>
+    <string name="criar_conta">Criar Conta</string>
+    <string name="registrar">Registrar</string>
 </resources>
