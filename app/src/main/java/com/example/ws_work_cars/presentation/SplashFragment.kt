@@ -1,7 +1,6 @@
 package com.example.ws_work_cars.presentation
 
 import android.os.Bundle
-import android.os.Handler
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -38,7 +37,7 @@ class SplashFragment : Fragment(R.layout.fragment_splash) {
     }
 
     private fun checkAuth(){
-        findNavController().navigate(R.id.action_splashFragment_to_loginFragment2)
+        findNavController().navigate(R.id.action_splashFragment_to_loginFragment)
     }
 
 }
