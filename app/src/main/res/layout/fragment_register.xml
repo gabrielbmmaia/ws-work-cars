@@ -28,7 +28,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/criar_conta"
+                    android:text="@string/criar_conta_tag"
                     android:textColor="@color/white"
                     android:layout_gravity="center"/>
 
@@ -49,7 +49,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginVertical="8dp"
-                android:text="@string/email_text"
+                android:text="@string/email_tag"
                 android:textColor="@color/white"
                 android:textSize="16sp" />
 
@@ -67,7 +67,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginVertical="8dp"
-                android:text="@string/senha"
+                android:text="@string/senha_tag"
                 android:textColor="@color/white"
                 android:textSize="16sp" />
 
@@ -87,7 +87,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:background="@drawable/background_white_button"
-                android:text="@string/registrar"
+                android:text="@string/registrar_tag"
                 android:textAllCaps="false"
                 android:textColor="@color/color_default"
                 android:textSize="16sp"
