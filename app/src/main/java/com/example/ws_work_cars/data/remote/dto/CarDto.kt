@@ -3,6 +3,9 @@ package com.example.ws_work_cars.data.remote.dto
 import com.example.ws_work_cars.domain.model.Car
 import com.squareup.moshi.Json
 
+/**
+ * Classe que representa a resposta da chamada da API
+ * */
 data class CarDto(
     val ano: String?,
     val combustivel: String?,
@@ -22,6 +25,9 @@ data class CarDto(
     val valorFipe: String?
 ) {
 
+    /**
+     * Função para transformar o CarDto em um Car
+     * */
     fun toCar(): Car {
 
         return Car(

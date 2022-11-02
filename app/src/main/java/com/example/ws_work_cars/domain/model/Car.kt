@@ -1,5 +1,9 @@
 package com.example.ws_work_cars.domain.model
 
+/**
+ * Classe utilizada fora da camada de Domain
+ * */
+
 data class Car(
     val ano: String,
     val combustivel: String,
