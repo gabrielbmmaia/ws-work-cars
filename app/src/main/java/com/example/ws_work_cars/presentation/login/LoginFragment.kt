@@ -1,4 +1,4 @@
-package com.example.ws_work_cars.presentation.login.view
+package com.example.ws_work_cars.presentation.login
 
 import android.os.Bundle
 import android.view.LayoutInflater
