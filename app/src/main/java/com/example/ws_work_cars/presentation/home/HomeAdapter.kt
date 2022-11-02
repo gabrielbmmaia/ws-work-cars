@@ -9,7 +9,7 @@ import com.example.ws_work_cars.databinding.HomeRecyclerviewCarBinding
 import com.example.ws_work_cars.domain.model.Car
 
 class HomeAdapter(
-    private val onItemClicked: (Car) -> Unit
+    private val onItemClicked: (Car) -> Unit = {}
 ) : RecyclerView.Adapter<HomeAdapter.HomeViewHolder>() {
 
     private var carList = mutableListOf<Car>()
