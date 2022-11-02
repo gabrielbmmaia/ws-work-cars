@@ -37,7 +37,7 @@ class SplashFragment : Fragment(R.layout.fragment_splash) {
     }
 
     private fun checkAuth(){
-        findNavController().navigate(R.id.action_splashFragment_to_loginFragment)
+        findNavController().navigate(R.id.action_splashFragment_to_homeFragment)
     }
 
 }

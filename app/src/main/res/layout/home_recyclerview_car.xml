@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -22,6 +23,7 @@
             android:paddingHorizontal="6dp"
             android:paddingVertical="4dp">
 
+            <!--    Modelo do Carro-->
             <TextView
                 android:id="@+id/modelo_carro"
                 android:layout_width="wrap_content"
@@ -35,6 +37,7 @@
                 app:layout_constraintTop_toTopOf="parent"
                 tools:text="Corola Xei" />
 
+            <!--    Marca do Carro-->
             <TextView
                 android:id="@+id/marca_carro"
                 android:layout_width="wrap_content"
@@ -46,6 +49,7 @@
                 app:layout_constraintTop_toTopOf="parent"
                 tools:text="Toyota" />
 
+            <!--    Cor do carro View-->
             <androidx.appcompat.widget.LinearLayoutCompat
                 android:id="@+id/view_cor"
                 android:layout_width="wrap_content"
@@ -68,6 +72,7 @@
 
             </androidx.appcompat.widget.LinearLayoutCompat>
 
+            <!--    Portas do carro View-->
             <androidx.appcompat.widget.LinearLayoutCompat
                 android:id="@+id/view_portas"
                 android:layout_width="wrap_content"
@@ -89,6 +94,7 @@
                     tools:text="4" />
             </androidx.appcompat.widget.LinearLayoutCompat>
 
+            <!--    Tipo de Combustível-->
             <TextView
                 android:id="@+id/combustivel_carro"
                 android:layout_width="wrap_content"
@@ -97,6 +103,28 @@
                 app:layout_constraintTop_toTopOf="@id/view_cor"
                 tools:text="Flex" />
 
+            <!--    Ano do Carro View-->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="@+id/valor_carro"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/valor_carro">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/tag_ano" />
+
+                <TextView
+                    android:id="@+id/ano_carro"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    tools:text="2016"/>
+            </LinearLayout>
+
+            <!--    Valor do Carro-->
             <TextView
                 android:id="@+id/valor_carro"
                 android:layout_width="wrap_content"

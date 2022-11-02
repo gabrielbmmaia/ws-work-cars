@@ -11,4 +11,5 @@
     <string name="registrar_tag">Registrar</string>
     <string name="cor_tag">Cor:</string>
     <string name="tag_portas">Portas:</string>
+    <string name="tag_ano">Ano:</string>
 </resources>
