@@ -4,6 +4,8 @@ import android.util.Log
 import com.example.ws_work_cars.core.Constants.BASE_URL
 import com.example.ws_work_cars.core.Constants.OK_HTTP
 import com.example.ws_work_cars.data.remote.CarService
+import com.example.ws_work_cars.data.repository.CarRepositoryImpl
+import com.example.ws_work_cars.domain.repository.CarRepository
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import okhttp3.OkHttpClient
@@ -22,6 +24,15 @@ object DataModule {
      * */
     fun load() {
         loadKoinModules(networkModule())
+    }
+
+    /**
+     * Injeção de dependência quando for solicitado ao Koin um CarRepository
+     * */
+    private fun carModule(): Module{
+        return module {
+            single <CarRepository> { CarRepositoryImpl( service = get()) }
+        }
     }
 
     private fun networkModule(): Module {
@@ -64,11 +75,11 @@ object DataModule {
         client: OkHttpClient
     ): T {
         return Retrofit.Builder()
-            .baseUrl(BASE_URL)
-            .addConverterFactory(MoshiConverterFactory.create(factory))
-            .client(client)
-            .build()
-            .create(T::class.java)
+            .baseUrl(BASE_URL) // Url base da Api
+            .addConverterFactory(MoshiConverterFactory.create(factory)) // Conversor de Json
+            .client(client) // Ok Http Interceptor
+            .build() // Criação do Retrofit
+            .create(T::class.java) // Criação do serviço
     }
 
 }
