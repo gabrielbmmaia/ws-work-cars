@@ -27,5 +27,9 @@
         android:id="@+id/leadFragment"
         android:name="com.example.ws_work_cars.presentation.lead_details.LeadFragment"
         android:label="fragment_lead"
-        tools:layout="@layout/fragment_lead" />
+        tools:layout="@layout/fragment_lead" >
+        <argument
+            android:name="car"
+            app:argType="com.example.ws_work_cars.domain.model.Car" />
+    </fragment>
 </navigation>

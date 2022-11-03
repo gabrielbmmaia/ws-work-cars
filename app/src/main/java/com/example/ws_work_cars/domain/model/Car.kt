@@ -1,8 +1,11 @@
 package com.example.ws_work_cars.domain.model
 
+import java.io.Serializable
+
 /**
  * Classe utilizada fora da camada de Domain
  * */
+
 
 data class Car(
     val ano: String,
@@ -13,4 +16,4 @@ data class Car(
     val nomeModelo: String,
     val numPortas: String,
     val valorFipe: String
-)
+): Serializable

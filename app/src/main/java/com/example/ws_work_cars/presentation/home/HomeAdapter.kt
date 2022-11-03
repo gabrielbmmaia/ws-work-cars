@@ -9,13 +9,23 @@ import com.example.ws_work_cars.databinding.HomeRecyclerviewCarBinding
 import com.example.ws_work_cars.domain.model.Car
 
 class HomeAdapter(
-    private val onItemClicked: (Car) -> Unit = {}
+    var onItemClicked: (car: Car) -> Unit = {}
 ) : RecyclerView.Adapter<HomeAdapter.HomeViewHolder>() {
 
     private var carList = mutableListOf<Car>()
 
     inner class HomeViewHolder(private val binding: HomeRecyclerviewCarBinding) :
         RecyclerView.ViewHolder(binding.root) {
+
+        private lateinit var car: Car
+
+        init {
+            itemView.setOnClickListener {
+                if (::car.isInitialized) {
+                    onItemClicked(car)
+                }
+            }
+        }
 
         private val modeloCarro = binding.modeloCarro
         private val marcaCarro = binding.marcaCarro
@@ -25,7 +35,10 @@ class HomeAdapter(
         private val anoCarro = binding.anoCarro
         private val valorCarro = binding.valorCarro
 
-        fun bindView(car: Car, onItemClicked: (Car) -> Unit) {
+        fun bindView(car: Car) {
+
+            this.car = car
+
             modeloCarro.text = car.nomeModelo
             marcaCarro.text = car.marcaNome
             corCarro.text = car.cor
@@ -57,7 +70,7 @@ class HomeAdapter(
     }
 
     override fun onBindViewHolder(holder: HomeViewHolder, position: Int) {
-        holder.bindView(carList[position], onItemClicked)
+        holder.bindView(carList[position])
     }
 
     override fun getItemCount(): Int = carList.size

@@ -19,15 +19,17 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
             android:src="@drawable/ic_logo" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/logo_text"
-            android:textColor="@color/second_color_default" />
+            android:textColor="@color/second_color_default"
+            android:textSize="18sp"
+            android:textStyle="bold" />
     </LinearLayout>
 
     <LinearLayout
@@ -43,32 +45,38 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginVertical="10dp"
             android:text="@string/nome_tag"
-            android:textColor="@color/white" />
+            android:textColor="@color/white"
+            android:textSize="18sp" />
 
         <EditText
             android:id="@+id/nome_edit_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginVertical="4dp"
             android:background="@drawable/background_edit_text"
             android:hint="@string/nome_tag"
+            android:minHeight="48dp"
             android:padding="8dp"
             android:textSize="14sp" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginVertical="10dp"
             android:text="@string/email_tag"
-            android:textColor="@color/white" />
+            android:textColor="@color/white"
+
+            android:textSize="18sp" />
 
         <EditText
             android:id="@+id/email_edit_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginVertical="4dp"
             android:background="@drawable/background_edit_text"
             android:hint="@string/example_email_text"
+            android:inputType="textEmailAddress"
+            android:minHeight="48dp"
             android:padding="8dp"
             android:textSize="14sp" />
 
@@ -76,10 +84,11 @@
             android:id="@+id/accept_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginVertical="10dp"
             android:layout_gravity="end"
+            android:layout_marginTop="14dp"
+            android:text="@string/accept_button"
             android:textColor="@color/color_default"
-            android:text="@string/accept_button"/>
+            android:textStyle="bold" />
 
     </LinearLayout>
 
