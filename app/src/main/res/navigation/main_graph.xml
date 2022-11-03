@@ -15,23 +15,6 @@
             app:destination="@id/homeFragment" />
     </fragment>
     <fragment
-        android:id="@+id/loginFragment"
-        android:name="com.example.ws_work_cars.presentation.login.LoginFragment"
-        android:label="fragment_login"
-        tools:layout="@layout/fragment_login" >
-        <action
-            android:id="@+id/action_loginFragment_to_registerFragment"
-            app:destination="@id/registerFragment" />
-        <action
-            android:id="@+id/action_loginFragment_to_homeFragment"
-            app:destination="@id/homeFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/registerFragment"
-        android:name="com.example.ws_work_cars.presentation.register.RegisterFragment"
-        android:label="fragment_register"
-        tools:layout="@layout/fragment_register" />
-    <fragment
         android:id="@+id/homeFragment"
         android:name="com.example.ws_work_cars.presentation.home.HomeFragment"
         android:label="fragment_home"

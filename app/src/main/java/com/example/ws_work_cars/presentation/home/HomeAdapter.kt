@@ -42,6 +42,13 @@ class HomeAdapter(
 
     }
 
+    fun setDataList(carList: List<Car>) {
+        notifyItemRangeRemoved(0, this.carList.size)
+        this.carList.clear()
+        this.carList.addAll(carList)
+        notifyDataSetChanged()
+    }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HomeViewHolder {
 
         val inflater = LayoutInflater.from(parent.context)
