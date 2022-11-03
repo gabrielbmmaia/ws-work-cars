@@ -12,12 +12,14 @@
         tools:layout="@layout/fragment_splash" >
         <action
             android:id="@+id/action_splashFragment_to_homeFragment"
-            app:destination="@id/homeFragment" />
+            app:destination="@id/homeFragment"
+            app:popUpTo="@id/splashFragment"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.example.ws_work_cars.presentation.home.HomeFragment"
-        android:label="fragment_home"
+        android:label="@string/logo_text"
         tools:layout="@layout/fragment_home" >
         <action
             android:id="@+id/action_homeFragment_to_leadFragment"
@@ -26,7 +28,7 @@
     <fragment
         android:id="@+id/leadFragment"
         android:name="com.example.ws_work_cars.presentation.lead_details.LeadFragment"
-        android:label="fragment_lead"
+        android:label="Tenho Interesse"
         tools:layout="@layout/fragment_lead" >
         <argument
             android:name="car"
