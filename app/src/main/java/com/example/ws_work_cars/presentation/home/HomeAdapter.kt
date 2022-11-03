@@ -46,7 +46,7 @@ class HomeAdapter(
         notifyItemRangeRemoved(0, this.carList.size)
         this.carList.clear()
         this.carList.addAll(carList)
-        notifyDataSetChanged()
+        notifyItemInserted(this.carList.size)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HomeViewHolder {

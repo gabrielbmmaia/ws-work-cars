@@ -12,9 +12,9 @@ class CarRepositoryImpl(
      * Envio da lista de carros transformado para Car
      * */
     override suspend fun getCarList(): List<Car> {
-        return service.getCarList().map { carDto ->
+        val serviceReturn = service.getCarList()
+        return serviceReturn.map { carDto ->
             carDto.toCar()
         }
     }
-
 }

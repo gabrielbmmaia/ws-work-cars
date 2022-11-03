@@ -12,7 +12,7 @@ object PresentationModule {
      * */
 
     fun load() {
-        loadKoinModules(viewModuleModule())
+        loadKoinModules(viewModelModule())
     }
 
 
@@ -20,7 +20,8 @@ object PresentationModule {
      * A dependencia de carList está vindo do DomainModule
      * */
 
-    private fun viewModuleModule(): Module {
+    private fun viewModelModule(): Module {
+
         return module {
             factory { HomeViewModel(carListUseCase = get()) }
         }

@@ -15,7 +15,6 @@ import org.koin.core.module.Module
 import org.koin.dsl.module
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
-import retrofit2.create
 
 object DataModule {
 
@@ -23,7 +22,7 @@ object DataModule {
      * Função load necessária para enviar para o Application todos os módulos de uma vez
      * */
     fun load() {
-        loadKoinModules(networkModule())
+        loadKoinModules(networkModule() + carModule())
     }
 
     /**

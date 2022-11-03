@@ -16,8 +16,8 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 class HomeFragment : Fragment(R.layout.fragment_home) {
 
     private lateinit var _binding: FragmentHomeBinding
-   // private lateinit var adapter: HomeAdapter
-    private val viewModel: HomeViewModel by viewModel()
+    private lateinit var adapter: HomeAdapter
+    private val viewModel by viewModel<HomeViewModel>()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -25,7 +25,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentHomeBinding.inflate(inflater)
-        //initRecyclerView()
+        initRecyclerView()
         return _binding.root
     }
 
@@ -52,7 +52,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
                     is CarListState.Success -> {
                         _binding.linearLayout.isVisible = false
                         _binding.homeRecyclerview.isVisible = true
-                       // adapter.setDataList(state.data)
+                        adapter.setDataList(state.data)
 
                     }
 
@@ -70,8 +70,8 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     }
 
     private fun initRecyclerView(){
-//        adapter = HomeAdapter()
-//        _binding.homeRecyclerview.adapter = adapter
+        adapter = HomeAdapter()
+        _binding.homeRecyclerview.adapter = adapter
 
     }
 
