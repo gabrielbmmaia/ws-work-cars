@@ -16,4 +16,6 @@
     <string name="cor_tag">Cor:</string>
     <string name="portas_tag">Portas:</string>
     <string name="ano_tag">Ano:</string>
+    <string name="nome_tag">Nome Completo</string>
+    <string name="accept_button">EU QUERO</string>
 </resources>

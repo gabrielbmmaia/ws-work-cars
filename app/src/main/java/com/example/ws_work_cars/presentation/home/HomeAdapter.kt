@@ -14,7 +14,6 @@ class HomeAdapter(
 
     private var carList = mutableListOf<Car>()
 
-
     inner class HomeViewHolder(private val binding: HomeRecyclerviewCarBinding) :
         RecyclerView.ViewHolder(binding.root) {
 

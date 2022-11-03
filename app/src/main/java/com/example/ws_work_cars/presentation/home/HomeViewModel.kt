@@ -17,7 +17,7 @@ class HomeViewModel(
      * Variáveis observáveis
      * */
 
-    private val _carListState = MutableStateFlow<CarListState>(CarListState.Empity)
+    private val _carListState = MutableStateFlow<CarListState>(CarListState.Empty)
     val carListState: StateFlow<CarListState> get() = _carListState
 
     init {

@@ -18,5 +18,14 @@
         android:id="@+id/homeFragment"
         android:name="com.example.ws_work_cars.presentation.home.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_leadFragment"
+            app:destination="@id/leadFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/leadFragment"
+        android:name="com.example.ws_work_cars.presentation.lead_details.LeadFragment"
+        android:label="fragment_lead"
+        tools:layout="@layout/fragment_lead" />
 </navigation>
