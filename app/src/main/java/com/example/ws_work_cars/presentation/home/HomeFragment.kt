@@ -17,7 +17,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
     private lateinit var _binding: FragmentHomeBinding
 
-    private val viewModel by viewModel<HomeViewModel>()
+    private val viewModel: HomeViewModel by viewModel()
 
     override fun onCreateView(
         inflater: LayoutInflater,

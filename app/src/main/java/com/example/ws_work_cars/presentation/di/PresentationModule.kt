@@ -22,7 +22,7 @@ object PresentationModule {
 
     private fun viewModuleModule(): Module {
         return module {
-            factory { HomeViewModel(carList = get()) }
+            factory { HomeViewModel(carListUseCase = get()) }
         }
     }
 }
