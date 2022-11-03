@@ -1,15 +1,19 @@
 <resources>
     <string name="app_name">ws-work-cars</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
     <string name="logo_text">WS CARS</string>
-    <string name="email_tag">E-mail</string>
+
     <string name="example_email_text">example@email.com</string>
-    <string name="senha_tag">Senha</string>
     <string name="password">********</string>
-    <string name="login_tag">Login</string>
+    <string name="email_tag">E-mail</string>
+    <string name="senha_tag">Senha</string>
     <string name="criar_conta_tag">Criar Conta</string>
     <string name="registrar_tag">Registrar</string>
+    <string name="login_tag">Login</string>
+
     <string name="cor_tag">Cor:</string>
-    <string name="tag_portas">Portas:</string>
-    <string name="tag_ano">Ano:</string>
+    <string name="portas_tag">Portas:</string>
+    <string name="ano_tag">Ano:</string>
 </resources>

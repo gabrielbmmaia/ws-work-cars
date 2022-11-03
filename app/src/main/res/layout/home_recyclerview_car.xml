@@ -3,7 +3,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="@color/white"
     android:layout_height="match_parent">
 
     <androidx.cardview.widget.CardView
@@ -20,6 +19,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background=""
             android:paddingHorizontal="6dp"
             android:paddingVertical="4dp">
 
@@ -84,7 +84,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/tag_portas" />
+                    android:text="@string/portas_tag" />
 
                 <TextView
                     android:id="@+id/portas_carro"
@@ -114,7 +114,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/tag_ano" />
+                    android:text="@string/ano_tag" />
 
                 <TextView
                     android:id="@+id/ano_carro"

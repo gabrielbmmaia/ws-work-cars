@@ -34,13 +34,13 @@
             android:id="@+id/progress_bar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:indeterminateTint="@color/white" />
+            android:indeterminateTint="@color/second_color_default" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Carregando Lista..."
-            android:textColor="@color/white" />
+            android:textColor="@color/second_color_default" />
 
     </LinearLayout>
 
