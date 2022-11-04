@@ -6,7 +6,9 @@ import com.example.ws_work_cars.core.Constants.OK_HTTP
 import com.example.ws_work_cars.data.local.database.LeadDatabase
 import com.example.ws_work_cars.data.remote.CarService
 import com.example.ws_work_cars.data.repository.CarRepositoryImpl
+import com.example.ws_work_cars.data.repository.LeadRepositoryImpl
 import com.example.ws_work_cars.domain.repository.CarRepository
+import com.example.ws_work_cars.domain.repository.LeadRepository
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import okhttp3.OkHttpClient
@@ -24,15 +26,20 @@ object DataModule {
      * Função load necessária para enviar para o Application todos os módulos de uma vez
      * */
     fun load() {
-        loadKoinModules(networkModule() + carModule() + localModule())
+        loadKoinModules(networkModule() + repositoryModules() + localModule())
     }
 
     /**
      * Injeção de dependência quando for solicitado ao Koin um CarRepository
      * */
-    private fun carModule(): Module{
+    private fun repositoryModules(): Module{
+
         return module {
+
             single <CarRepository> { CarRepositoryImpl( service = get()) }
+
+            single <LeadRepository> { LeadRepositoryImpl( service = get(), leadDao = get()) }
+
         }
     }
 
@@ -40,13 +47,16 @@ object DataModule {
      * Injeção de depedência do bando de dados local
      * */
     private fun localModule(): Module{
-        return module {
-            single {LeadDatabase.getInstance(androidContext()).dao}
-        }
 
+        return module {
+
+            single {LeadDatabase.getInstance(androidContext()).dao}
+
+        }
     }
 
     private fun networkModule(): Module {
+
         return module {
 
             /**
