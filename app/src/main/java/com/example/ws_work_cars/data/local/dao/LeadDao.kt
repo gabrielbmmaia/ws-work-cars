@@ -5,6 +5,7 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import com.example.ws_work_cars.data.local.entities.LeadDb
+import retrofit2.http.GET
 
 
 @Dao
@@ -15,6 +16,9 @@ interface LeadDao {
      * */
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun saveLead(lead: LeadDb)
+
+    @Query("SELECT * FROM leaddb")
+    suspend fun getLeads(): List<LeadDb>
 
     /**
      * Limpar o banco de dados
