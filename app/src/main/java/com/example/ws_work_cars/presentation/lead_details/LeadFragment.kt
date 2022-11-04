@@ -11,13 +11,15 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupWithNavController
 import com.example.ws_work_cars.R
 import com.example.ws_work_cars.databinding.FragmentLeadBinding
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 
 class LeadFragment : Fragment(R.layout.fragment_lead) {
 
     private val args: LeadFragmentArgs by navArgs()
-
     private lateinit var _binding: FragmentLeadBinding
+    private val viewModel by viewModel<LeadViewModel>()
+
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -32,6 +34,21 @@ class LeadFragment : Fragment(R.layout.fragment_lead) {
         super.onViewCreated(view, savedInstanceState)
         popularDadoCarros()
         toolbar()
+        submitButton()
+    }
+
+    private fun submitButton() {
+
+        _binding.acceptButton.setOnClickListener {
+
+            val carId = args.car.id
+            val nomeLead = _binding.nomeEditText.text.toString()
+            val emailLead = _binding.emailEditText.text.toString()
+
+            viewModel.saveLead(carId, nomeLead, emailLead)
+
+
+        }
     }
 
     private fun popularDadoCarros() {

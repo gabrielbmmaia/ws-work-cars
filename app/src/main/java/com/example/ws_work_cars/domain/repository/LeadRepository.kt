@@ -8,6 +8,4 @@ interface LeadRepository {
 
     suspend fun sendLeadToApi()
 
-
-
 }

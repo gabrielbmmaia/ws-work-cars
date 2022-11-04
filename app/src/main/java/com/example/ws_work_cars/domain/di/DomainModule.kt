@@ -1,6 +1,7 @@
 package com.example.ws_work_cars.domain.di
 
 import com.example.ws_work_cars.domain.use_cases.GetCarListUseCase
+import com.example.ws_work_cars.domain.use_cases.SaveLeadUseCase
 import org.koin.core.context.loadKoinModules
 import org.koin.core.module.Module
 import org.koin.dsl.module
@@ -21,6 +22,8 @@ object DomainModule {
 
         return module {
             factory { GetCarListUseCase(repository = get()) }
+
+            factory { SaveLeadUseCase(repository = get()) }
         }
     }
 
