@@ -1,5 +1,6 @@
 package com.example.ws_work_cars.domain.use_cases
 
+import android.util.Log
 import com.example.ws_work_cars.core.Resource
 import com.example.ws_work_cars.domain.model.Car
 import com.example.ws_work_cars.domain.repository.CarRepository
@@ -17,8 +18,9 @@ class GetCarListUseCase(
             emit(Resource.Success(carList))
 
         } catch (e: Exception) {
+            Log.e("GetCarUseCase", e.message ?: "Ocorreu um Error" )
 
-            emit(Resource.Error(e.message ?: "Ocorreu um Error"))
+            emit(Resource.Error("Ocorreu um Error"))
 
         }
     }

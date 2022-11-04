@@ -3,7 +3,7 @@ package com.example.ws_work_cars.data.local.entities
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
-@Entity(tableName = "leads")
+@Entity
 data class LeadDb(
 
     @PrimaryKey(autoGenerate = true)
