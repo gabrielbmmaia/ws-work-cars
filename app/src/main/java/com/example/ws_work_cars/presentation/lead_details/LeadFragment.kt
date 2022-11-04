@@ -47,7 +47,7 @@ class LeadFragment : Fragment(R.layout.fragment_lead) {
 
             viewModel.saveLead(carId, nomeLead, emailLead)
 
-
+            toHomeFragment()
         }
     }
 
@@ -62,5 +62,10 @@ class LeadFragment : Fragment(R.layout.fragment_lead) {
         val appBarConfig = AppBarConfiguration(navController.graph)
         val toolbar = _binding.toolbar
         toolbar.setupWithNavController(navController, appBarConfig)
+    }
+
+    private fun toHomeFragment(){
+        val action = LeadFragmentDirections.actionLeadFragmentToHomeFragment()
+        findNavController().navigate(action)
     }
 }

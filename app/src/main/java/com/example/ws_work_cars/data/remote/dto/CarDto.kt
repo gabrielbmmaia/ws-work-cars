@@ -2,6 +2,8 @@ package com.example.ws_work_cars.data.remote.dto
 
 import com.example.ws_work_cars.domain.model.Car
 import com.squareup.moshi.Json
+import java.text.NumberFormat
+import java.util.*
 
 /**
  * Classe que representa a resposta da chamada da API
@@ -22,7 +24,7 @@ data class CarDto(
     @Json(name = "timestamp_cadastro")
     val timestampCadastro: String,
     @Json(name = "valor_fipe")
-    val valorFipe: String?
+    val valorFipe: String
 ) {
 
     /**
@@ -38,7 +40,27 @@ data class CarDto(
             marcaNome = marcaNome ?: "",
             nomeModelo = nomeModelo ?: "",
             numPortas = numPortas ?: "",
-            valorFipe = valorFipe ?: ""
+            valorFipe = tratamentoDoValor(valorFipe)
         )
+    }
+
+    /**
+     * Essa função serve unicamente para "tratar" os dados inconsistentes que vem da API
+     * e formatar o valor para a moeda brasileira.
+     *
+     * !!! Em outras ocasiões essa função não deverá existir. !!!
+     *
+     * */
+
+    private fun tratamentoDoValor(valor: String): String {
+
+        val formatador = NumberFormat.getCurrencyInstance(Locale("pt", "br"))
+        val valorConvertido = valor.toDouble()
+
+        if (valorConvertido < 1000) {
+            return formatador.format(valorConvertido * 1000).toString()
+        }
+
+        return formatador.format(valorConvertido).toString()
     }
 }
