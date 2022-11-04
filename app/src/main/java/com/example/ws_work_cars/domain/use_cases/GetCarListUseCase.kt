@@ -6,7 +6,7 @@ import com.example.ws_work_cars.domain.repository.CarRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 
-class getCarListUseCase(
+class GetCarListUseCase(
     private val repository: CarRepository
 ) {
     operator fun invoke(): Flow<Resource<List<Car>>> = flow {

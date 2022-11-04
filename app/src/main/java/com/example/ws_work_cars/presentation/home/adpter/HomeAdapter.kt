@@ -1,8 +1,9 @@
-package com.example.ws_work_cars.presentation.home
+package com.example.ws_work_cars.presentation.home.adpter
 
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 
 import com.example.ws_work_cars.databinding.HomeRecyclerviewCarBinding
@@ -17,6 +18,9 @@ class HomeAdapter(
     inner class HomeViewHolder(private val binding: HomeRecyclerviewCarBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
+        /**
+         * Objeto para ser enviado quando a view for clicada
+         * */
         private lateinit var car: Car
 
         init {
@@ -46,19 +50,17 @@ class HomeAdapter(
             combustivelCarro.text = car.combustivel
             anoCarro.text = car.ano
             valorCarro.text = car.valorFipe
-
-            itemView.setOnClickListener {
-                onItemClicked(car)
-            }
         }
-
     }
 
+    /**
+     * Utilização de um DiffUtil para uma melhor performance da RecyclerView
+     * */
     fun setDataList(carList: List<Car>) {
-        notifyItemRangeRemoved(0, this.carList.size)
-        this.carList.clear()
-        this.carList.addAll(carList)
-        notifyItemInserted(this.carList.size)
+        val diffUtil = AdapterDiffUtil(oldCarList = this.carList, newCarList = carList)
+        val diffResults = DiffUtil.calculateDiff(diffUtil)
+        this.carList = carList.toMutableList()
+        diffResults.dispatchUpdatesTo(this)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HomeViewHolder {

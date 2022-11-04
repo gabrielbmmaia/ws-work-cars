@@ -12,6 +12,9 @@ import com.example.ws_work_cars.databinding.FragmentSplashBinding
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
+/**
+ * Fragmento inicial do aplicativo
+ * */
 
 class SplashFragment : Fragment(R.layout.fragment_splash) {
 

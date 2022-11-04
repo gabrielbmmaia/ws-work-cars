@@ -16,4 +16,4 @@ data class Car(
     val nomeModelo: String,
     val numPortas: String,
     val valorFipe: String
-): Serializable
+) : Serializable
