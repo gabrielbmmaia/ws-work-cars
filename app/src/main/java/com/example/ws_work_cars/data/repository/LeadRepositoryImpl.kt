@@ -22,6 +22,7 @@ class LeadRepositoryImpl(
     }
 
     override suspend fun sendLeadToApi() {
-        TODO("Not yet implemented")
+        val leads = leadDao.getLeads()
+
     }
 }

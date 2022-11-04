@@ -5,7 +5,6 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import com.example.ws_work_cars.data.local.entities.LeadDb
-import retrofit2.http.GET
 
 
 @Dao
