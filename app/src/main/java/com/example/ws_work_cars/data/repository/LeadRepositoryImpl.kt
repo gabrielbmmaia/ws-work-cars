@@ -11,6 +11,10 @@ class LeadRepositoryImpl(
     private val leadDao: LeadDao
 ) : LeadRepository {
 
+    /**
+     * Função para salvar leads no banco de dados
+     * */
+
     override suspend fun saveLead(lead: Lead) {
         leadDao.saveLead(
             LeadDb(
@@ -21,8 +25,24 @@ class LeadRepositoryImpl(
         )
     }
 
+    /**
+     * Função para enviar Leads para a API
+     * */
+
     override suspend fun sendLeadToApi() {
+
         val leads = leadDao.getLeads()
 
+        val leadsRequest = leads.map {
+            it.toLeadRequest()
+        }
+
+        val request = service.sendLead(leadsRequest)
+
+        if (request.isSuccessful) {
+            leadDao.clearDb()
+        }
+
     }
+
 }
