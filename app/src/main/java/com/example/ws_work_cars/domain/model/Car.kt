@@ -3,9 +3,8 @@ package com.example.ws_work_cars.domain.model
 import java.io.Serializable
 
 /**
- * Classe utilizada fora da camada de Domain
+ * Modelo Car utilizado na camada de View e Viewmodel
  * */
-
 
 data class Car(
     val ano: String,
