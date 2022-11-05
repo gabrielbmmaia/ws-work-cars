@@ -27,7 +27,7 @@ object PresentationModule {
 
             factory { HomeViewModel(carListUseCase = get(), repository = get()) }
 
-            factory { LeadViewModel(saveLeadUseCase = get()) }
+            factory { LeadViewModel(saveLeadUseCase = get(), leadValidation = get()) }
         }
     }
 }

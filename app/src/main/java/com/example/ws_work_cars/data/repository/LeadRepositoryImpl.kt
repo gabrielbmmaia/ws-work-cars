@@ -50,7 +50,7 @@ class LeadRepositoryImpl(
                 val request = service.sendLead(leads)
 
                 if (request.isSuccessful) {
-                    leadDao.clearDb()
+//                    leadDao.clearDb()
                 }
 
             } catch (e: Exception) {

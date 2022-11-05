@@ -28,7 +28,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     ): View {
         _binding = FragmentHomeBinding.inflate(inflater)
         initRecyclerView()
-        sendLeadRoutine()
+//        sendLeadRoutine()
         return _binding.root
     }
 
@@ -51,8 +51,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
                             requireContext(),
                             state.errorMessage,
                             Toast.LENGTH_SHORT
-                        )
-                            .show()
+                        ).show()
                     }
 
                     is CarListState.Success -> {
