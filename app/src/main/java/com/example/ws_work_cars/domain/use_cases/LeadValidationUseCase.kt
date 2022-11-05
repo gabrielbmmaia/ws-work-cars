@@ -52,7 +52,7 @@ class LeadValidationUseCase(
 
         if (emailValidation.successful && nameValidation.successful) {
 
-            emit(ValidationResult.Success("Dados Enviados"))
+            emit(ValidationResult.Success("$name, seus dados foram enviados"))
         }
     }
 }

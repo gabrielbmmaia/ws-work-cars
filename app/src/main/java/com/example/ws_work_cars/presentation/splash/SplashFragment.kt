@@ -1,6 +1,7 @@
-package com.example.ws_work_cars.presentation
+package com.example.ws_work_cars.presentation.splash
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,16 +14,16 @@ import com.example.ws_work_cars.domain.use_cases.SendLeadRoutineUseCase
 import kotlinx.coroutines.Dispatchers.IO
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 /**
  * Fragmento inicial do aplicativo
  * */
 
-class SplashFragment(
-    private val leadRoutine: SendLeadRoutineUseCase
-) : Fragment(R.layout.fragment_splash) {
+class SplashFragment : Fragment(R.layout.fragment_splash) {
 
     private lateinit var _binding: FragmentSplashBinding
+    private val viewModel by viewModel<SplashViewModel>()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -51,8 +52,9 @@ class SplashFragment(
     }
 
     private fun leadRoutine() {
-        lifecycleScope.launch(IO) {
-            leadRoutine.execute()
+        lifecycleScope.launchWhenStarted {
+            Log.i("SplashFragment", "leadRoutine: leadRoutine")
+            viewModel
         }
     }
 }

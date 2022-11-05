@@ -114,8 +114,8 @@ class LeadFragment : Fragment(R.layout.fragment_lead) {
         _binding.acceptButton.setOnClickListener {
 
             val carId = args.car.id
-            val nomeLead = _binding.nomeEditText.text.toString()
-            val emailLead = _binding.emailEditText.text.toString()
+            val nomeLead = _binding.nomeEditText.text.toString().trim()
+            val emailLead = _binding.emailEditText.text.toString().trim()
 
             viewModel.saveLead(carId, nomeLead, emailLead)
 
@@ -140,7 +140,6 @@ class LeadFragment : Fragment(R.layout.fragment_lead) {
     }
 
     private fun toHomeFragment() {
-
         val action = LeadFragmentDirections.actionLeadFragmentToHomeFragment()
         findNavController().navigate(action)
     }

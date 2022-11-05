@@ -26,11 +26,13 @@ object DomainModule {
 
             factory { SaveLeadUseCase(repository = get()) }
 
-            factory { EmailValidationUseCase () }
+            factory { EmailValidationUseCase() }
 
-            factory { NameValidationUseCase () }
+            factory { NameValidationUseCase() }
 
             factory { LeadValidationUseCase(emailValidationUseCase = get(), nameValidationUseCase = get()) }
+
+            factory { SendLeadRoutineUseCase(repository = get()) }
         }
     }
 }
