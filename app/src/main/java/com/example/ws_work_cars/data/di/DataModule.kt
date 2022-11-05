@@ -25,32 +25,35 @@ object DataModule {
     /**
      * Função load necessária para enviar para o Application todos os módulos de uma vez
      * */
+
     fun load() {
         loadKoinModules(networkModule() + repositoryModules() + localModule())
     }
 
     /**
-     * Injeção de dependência quando for solicitado ao Koin um CarRepository
+     * Injeção de dependência quando for solicitado ao Koin um Repository
      * */
-    private fun repositoryModules(): Module{
+
+    private fun repositoryModules(): Module {
 
         return module {
 
-            single <CarRepository> { CarRepositoryImpl( service = get()) }
+            single<CarRepository> { CarRepositoryImpl(service = get()) }
 
-            single <LeadRepository> { LeadRepositoryImpl( service = get(), leadDao = get()) }
+            single<LeadRepository> { LeadRepositoryImpl(service = get(), leadDao = get()) }
 
         }
     }
 
     /**
-     * Injeção de depedência do bando de dados local
+     * Injeção de depedência quando for solicitado ao Koin um Database
      * */
-    private fun localModule(): Module{
+
+    private fun localModule(): Module {
 
         return module {
 
-            single {LeadDatabase.getInstance(androidContext()).dao}
+            single { LeadDatabase.getInstance(androidContext()).dao }
 
         }
     }
@@ -62,11 +65,13 @@ object DataModule {
             /**
              * Criação do serviço CarService
              * */
+
             single<CarService> { createService(factory = get(), client = get()) }
 
             /**
              * Criação do Okhttp interceptor
              * */
+
             single {
                 val interceptor = HttpLoggingInterceptor {
                     Log.e(OK_HTTP, it)
@@ -80,6 +85,7 @@ object DataModule {
             /**
              * Criação da Factory Moshi
              * */
+
             single {
                 Moshi.Builder().add(KotlinJsonAdapterFactory()).build()
             }
@@ -91,6 +97,7 @@ object DataModule {
      * Criação de serviços com o Retrofit. Foi utilizado o generics para
      * facilitar a criação de novos serviços casa seja necessário futuramente.
      * */
+
     private inline fun <reified T> createService(
         factory: Moshi,
         client: OkHttpClient
@@ -102,5 +109,4 @@ object DataModule {
             .build() // Criação do Retrofit
             .create(T::class.java) // Criação do serviço
     }
-
 }

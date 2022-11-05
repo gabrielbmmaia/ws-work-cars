@@ -18,7 +18,7 @@ class GetCarListUseCase(
             emit(Resource.Success(carList))
 
         } catch (e: Exception) {
-            Log.e("GetCarUseCase", e.message ?: "Ocorreu um Error" )
+            Log.e("GetCarUseCase", e.message ?: "Ocorreu um Error")
 
             emit(Resource.Error("Ocorreu um Error"))
 

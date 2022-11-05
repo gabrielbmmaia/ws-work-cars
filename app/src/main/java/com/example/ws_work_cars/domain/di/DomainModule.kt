@@ -11,6 +11,7 @@ object DomainModule {
     /**
      * Função load necessária para enviar para o Application todos os módulos de uma vez
      * */
+
     fun load() {
         loadKoinModules(useCaseModule())
     }
@@ -18,13 +19,14 @@ object DomainModule {
     /**
      * A dependencia de repository está vindo do DataModule
      * */
+
     private fun useCaseModule(): Module {
 
         return module {
             factory { GetCarListUseCase(repository = get()) }
 
             factory { SaveLeadUseCase(repository = get()) }
+
         }
     }
-
 }

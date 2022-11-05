@@ -13,7 +13,6 @@ import com.example.ws_work_cars.R
 import com.example.ws_work_cars.databinding.FragmentHomeBinding
 import com.example.ws_work_cars.presentation.home.adpter.HomeAdapter
 import org.koin.androidx.viewmodel.ext.android.viewModel
-import java.math.BigDecimal
 
 
 class HomeFragment : Fragment(R.layout.fragment_home) {
@@ -29,6 +28,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     ): View {
         _binding = FragmentHomeBinding.inflate(inflater)
         initRecyclerView()
+        sendLeadRoutine()
         return _binding.root
     }
 
@@ -37,8 +37,6 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         updateUi()
         toLeadFragment()
     }
-
-
 
     private fun updateUi() {
         lifecycleScope.launchWhenStarted {
@@ -80,6 +78,12 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     private fun initRecyclerView() {
         adapter = HomeAdapter()
         _binding.homeRecyclerview.adapter = this.adapter
+    }
+
+    private fun sendLeadRoutine() {
+        lifecycleScope.launchWhenCreated {
+            viewModel.sendLeadToApi()
+        }
     }
 
     private fun toLeadFragment() {

@@ -3,6 +3,7 @@ package com.example.ws_work_cars.presentation.home
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.ws_work_cars.core.Resource
+import com.example.ws_work_cars.domain.repository.LeadRepository
 import com.example.ws_work_cars.domain.use_cases.GetCarListUseCase
 import kotlinx.coroutines.Dispatchers.IO
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -10,6 +11,7 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 
 class HomeViewModel(
+    private val repository: LeadRepository,
     private val carListUseCase: GetCarListUseCase
 ) : ViewModel() {
 
@@ -52,6 +54,12 @@ class HomeViewModel(
                     }
                 }
             }
+        }
+    }
+
+    fun sendLeadToApi() {
+        viewModelScope.launch(IO) {
+            repository.sendLeadToApi()
         }
     }
 }

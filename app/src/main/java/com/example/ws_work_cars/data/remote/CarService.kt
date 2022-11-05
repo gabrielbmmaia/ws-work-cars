@@ -2,6 +2,7 @@ package com.example.ws_work_cars.data.remote
 
 import com.example.ws_work_cars.data.remote.dto.CarDto
 import com.example.ws_work_cars.data.remote.dto.LeadRequest
+import com.example.ws_work_cars.domain.model.Lead
 import retrofit2.Response
 import retrofit2.http.Body
 import retrofit2.http.GET
@@ -18,7 +19,7 @@ interface CarService {
     @POST("cars/leads")
     suspend fun sendLead(
 
-        @Body leads: List<LeadRequest>
+        @Body leads: List<Lead>
 
     ): Response<LeadRequest>
 

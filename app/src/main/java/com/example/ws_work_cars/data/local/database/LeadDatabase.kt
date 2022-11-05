@@ -13,7 +13,7 @@ import com.example.ws_work_cars.data.local.entities.LeadDb
     version = 1,
     exportSchema = false
 )
-abstract class LeadDatabase : RoomDatabase(){
+abstract class LeadDatabase : RoomDatabase() {
 
     abstract val dao: LeadDao
 
@@ -21,18 +21,19 @@ abstract class LeadDatabase : RoomDatabase(){
      * Aqui estamos criando uma instancia do database caso ela ainda não exista
      * e caso exista estamos pegando a mesma referência
      * */
-    companion object{
+
+    companion object {
 
         @Volatile
         private var INSTANCE: LeadDatabase? = null
 
-        fun getInstance(context: Context) : LeadDatabase{
+        fun getInstance(context: Context): LeadDatabase {
 
-            synchronized(this){
+            synchronized(this) {
 
                 var instance = INSTANCE
 
-                if(instance == null) {
+                if (instance == null) {
 
                     instance = Room.databaseBuilder(
                         context.applicationContext,
@@ -41,7 +42,7 @@ abstract class LeadDatabase : RoomDatabase(){
                     ).build()
                     INSTANCE = instance
                 }
-                return  instance
+                return instance
             }
         }
     }

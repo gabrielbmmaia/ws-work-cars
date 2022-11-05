@@ -8,6 +8,7 @@ import java.util.*
 /**
  * Classe que representa a resposta da chamada da API
  * */
+
 data class CarDto(
     val ano: String?,
     val combustivel: String?,
@@ -30,6 +31,7 @@ data class CarDto(
     /**
      * Função para transformar o CarDto em um Car
      * */
+
     fun toCar(): Car {
 
         return Car(

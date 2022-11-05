@@ -4,6 +4,7 @@ import android.util.Log
 import com.example.ws_work_cars.data.local.dao.LeadDao
 import com.example.ws_work_cars.data.local.entities.LeadDb
 import com.example.ws_work_cars.data.remote.CarService
+import com.example.ws_work_cars.data.remote.dto.LeadRequest
 import com.example.ws_work_cars.domain.model.Lead
 import com.example.ws_work_cars.domain.repository.LeadRepository
 
@@ -27,25 +28,26 @@ class LeadRepositoryImpl(
     }
 
     /**
-     * Função para enviar Leads para a API. Primeiro é verificado
-     * se a lista de leads do banco de dados não está vazia. Caso
-     * não esteja, é enviado a lista com os leads para a Api e em
+     * Função para enviar Leads para a API.
+     * Primeiro é verificado se a lista de leads do
+     * banco de dados não está vazia. Caso não esteja,
+     * é enviado a lista com os leads para a Api e em
      * caso de sucesso o banco de dados local é limpo.
      * */
 
     override suspend fun sendLeadToApi() {
 
-        val leads = leadDao.getLeads()
+        val leadDb = leadDao.getLeads()
 
-        val leadsRequest = leads.map {
-            it.toLeadRequest()
+        val leads = leadDb.map {
+            it.toLead()
         }
 
-        if (leadsRequest.isNotEmpty()) {
+        if (leads.isNotEmpty()) {
 
             try {
 
-                val request = service.sendLead(leadsRequest)
+                val request = service.sendLead(leads)
 
                 if (request.isSuccessful) {
                     leadDao.clearDb()

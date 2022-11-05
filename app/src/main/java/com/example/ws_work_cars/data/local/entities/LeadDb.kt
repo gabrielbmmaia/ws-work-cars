@@ -5,6 +5,10 @@ import androidx.room.PrimaryKey
 import com.example.ws_work_cars.data.remote.dto.LeadRequest
 import com.example.ws_work_cars.domain.model.Lead
 
+/**
+ * Modelo para ser adicionado ao banco de dados local
+ * */
+
 @Entity
 data class LeadDb(
 
@@ -18,14 +22,6 @@ data class LeadDb(
 
     fun toLead(): Lead {
         return Lead(
-            carId = carId,
-            nomeLead = nomeLead,
-            emailLead = emailLead
-        )
-    }
-
-    fun toLeadRequest(): LeadRequest {
-        return LeadRequest(
             carId = carId,
             nomeLead = nomeLead,
             emailLead = emailLead

@@ -11,15 +11,19 @@ class LeadViewModel(
     private val saveLeadUseCase: SaveLeadUseCase
 ) : ViewModel() {
 
+
     fun saveLead(carId: Long, nomeLead: String, emailLead: String) {
 
         viewModelScope.launch(IO) {
 
-            saveLeadUseCase(Lead(
-                carId = carId,
-                nomeLead = nomeLead,
-                emailLead = emailLead
-            ))
+            saveLeadUseCase(
+                Lead(
+                    carId = carId,
+                    nomeLead = nomeLead,
+                    emailLead = emailLead
+                )
+            )
+
         }
     }
 }
