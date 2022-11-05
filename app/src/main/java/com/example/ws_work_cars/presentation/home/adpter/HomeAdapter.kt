@@ -21,6 +21,7 @@ class HomeAdapter(
         /**
          * Objeto para ser enviado quando a view for clicada
          * */
+
         private lateinit var car: Car
 
         init {
@@ -56,6 +57,7 @@ class HomeAdapter(
     /**
      * Utilização de um DiffUtil para uma melhor performance da RecyclerView
      * */
+
     fun setDataList(carList: List<Car>) {
         val diffUtil = AdapterDiffUtil(oldCarList = this.carList, newCarList = carList)
         val diffResults = DiffUtil.calculateDiff(diffUtil)

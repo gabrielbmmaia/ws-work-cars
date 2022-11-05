@@ -1,5 +1,9 @@
 package com.example.ws_work_cars.domain.use_cases.util
 
+/**
+ * Classe para auxiliar as validações
+ * */
+
 sealed class ValidationResult{
 
     class EmailError(val errorMessage: String) : ValidationResult()

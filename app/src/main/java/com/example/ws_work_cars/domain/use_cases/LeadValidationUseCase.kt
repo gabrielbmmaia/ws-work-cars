@@ -4,6 +4,10 @@ import com.example.ws_work_cars.domain.use_cases.util.ValidationResult
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 
+/**
+ * Classe para validação de um Lead
+ * */
+
 class LeadValidationUseCase(
     private val emailValidationUseCase: EmailValidationUseCase,
     private val nameValidationUseCase: NameValidationUseCase

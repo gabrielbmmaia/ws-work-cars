@@ -6,6 +6,10 @@ import com.example.ws_work_cars.data.remote.CarService
 import com.example.ws_work_cars.domain.model.Lead
 import com.example.ws_work_cars.domain.repository.LeadRepository
 
+/**
+ * Repositorio com todas implementaçãos do LeadRepository
+ * */
+
 class LeadRepositoryImpl(
     private val service: CarService,
     private val leadDao: LeadDao
@@ -25,6 +29,10 @@ class LeadRepositoryImpl(
         )
     }
 
+    /**
+     * Função para pegar todos os Leads salvos no banco de dados
+     * */
+
     override suspend fun getLeads(): List<Lead> {
 
         val leads = leadDao.getLeads().map { leadDb ->
@@ -35,6 +43,10 @@ class LeadRepositoryImpl(
 
     }
 
+    /**
+     * Função para enviar uma lista de leads para a Api
+     * */
+
     override suspend fun sendLeadsToApi(leads: List<Lead>): Boolean {
 
         val request = service.sendLead(leads)
@@ -42,6 +54,10 @@ class LeadRepositoryImpl(
         return request.isSuccessful
 
     }
+
+    /**
+     * Função para limpar o base de dados local
+     * */
 
     override suspend fun clearDataLeads() {
 

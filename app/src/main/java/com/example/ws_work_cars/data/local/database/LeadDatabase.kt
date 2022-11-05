@@ -8,6 +8,10 @@ import com.example.ws_work_cars.data.local.dao.LeadDao
 import com.example.ws_work_cars.data.local.entities.LeadDb
 
 
+/**
+ * Classe para criação da única instância do DataBase
+ * */
+
 @Database(
     entities = [LeadDb::class],
     version = 1,
@@ -19,7 +23,7 @@ abstract class LeadDatabase : RoomDatabase() {
 
     /**
      * Aqui estamos criando uma instancia do database caso ela ainda não exista
-     * e caso exista estamos pegando a mesma referência
+     * e caso exista estamos pegando a mesma referência criada anteriormente
      * */
 
     companion object {

@@ -31,7 +31,7 @@ object DataModule {
     }
 
     /**
-     * Injeção de dependência quando for solicitado ao Koin um Repository
+     * Módulos dos Repositorys do aplicativo.
      * */
 
     private fun repositoryModules(): Module {
@@ -46,7 +46,7 @@ object DataModule {
     }
 
     /**
-     * Injeção de depedência quando for solicitado ao Koin um Database
+     * Módulo da Data_Local do aplicativo.
      * */
 
     private fun localModule(): Module {
@@ -57,6 +57,10 @@ object DataModule {
 
         }
     }
+
+    /**
+     * Módulo de Data_Remote do aplicativo
+     * */
 
     private fun networkModule(): Module {
 

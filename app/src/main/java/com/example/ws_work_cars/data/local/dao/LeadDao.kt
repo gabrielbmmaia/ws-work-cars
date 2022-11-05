@@ -7,6 +7,10 @@ import androidx.room.Query
 import com.example.ws_work_cars.data.local.entities.LeadDb
 
 
+/**
+ * Classe de controle do banco de dados pelo Room
+ * */
+
 @Dao
 interface LeadDao {
 

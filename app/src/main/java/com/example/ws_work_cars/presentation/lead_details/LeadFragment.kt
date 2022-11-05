@@ -5,7 +5,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
@@ -43,6 +42,11 @@ class LeadFragment : Fragment(R.layout.fragment_lead) {
         updateLead()
     }
 
+    /**
+     * Possíveis mudanças na caixa de texto do EMAIL de acordo
+     * com seus possíveis estados
+     * */
+
     private fun updateEmail() {
         lifecycleScope.launchWhenStarted {
             viewModel.emailState.collect { state ->
@@ -64,6 +68,11 @@ class LeadFragment : Fragment(R.layout.fragment_lead) {
             }
         }
     }
+
+    /**
+     * Possíveis mudanças na caixa de texto do NOME de acordo
+     * com seus possíveis estados
+     * */
 
     private fun updateName() {
         lifecycleScope.launchWhenStarted {
@@ -87,6 +96,12 @@ class LeadFragment : Fragment(R.layout.fragment_lead) {
         }
     }
 
+    /**
+     * Função para quando o nome e email forem válidos o
+     * usuários ser transferido para tela anterior e
+     * mostrar um Toast avisando-o que tudo ocorreu bem
+     * */
+
     private fun updateLead() {
         lifecycleScope.launchWhenStarted {
             viewModel.leadState.collect { state ->
@@ -109,6 +124,10 @@ class LeadFragment : Fragment(R.layout.fragment_lead) {
         }
     }
 
+    /**
+     * Função para enviar para a ViewModel os dados necessários
+     * */
+
     private fun submitButton() {
 
         _binding.acceptButton.setOnClickListener {
@@ -121,6 +140,11 @@ class LeadFragment : Fragment(R.layout.fragment_lead) {
 
         }
     }
+
+    /**
+     * Função para popular os dados do carro enviados pelo argumento
+     * da ação do navigation
+     * */
 
     private fun popularDadoCarros() {
 

@@ -12,5 +12,4 @@ class SaveLeadUseCase(
         repository.saveLead(lead)
 
     }
-
 }

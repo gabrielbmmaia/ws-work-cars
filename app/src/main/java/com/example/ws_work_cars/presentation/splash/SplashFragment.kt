@@ -10,8 +10,6 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.example.ws_work_cars.R
 import com.example.ws_work_cars.databinding.FragmentSplashBinding
-import com.example.ws_work_cars.domain.use_cases.SendLeadRoutineUseCase
-import kotlinx.coroutines.Dispatchers.IO
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -31,6 +29,10 @@ class SplashFragment : Fragment(R.layout.fragment_splash) {
         savedInstanceState: Bundle?
     ): View {
 
+        /**
+         * Execução da rotina de envio de leads
+         * */
+
         leadRoutine()
 
         _binding = FragmentSplashBinding.inflate(inflater)
@@ -42,14 +44,21 @@ class SplashFragment : Fragment(R.layout.fragment_splash) {
         toHomeFragment()
     }
 
-    private fun toHomeFragment() {
+    /**
+     * Navegação para a tela home com um atraso de 2 segundos
+     * */
 
+    private fun toHomeFragment() {
         lifecycleScope.launch {
 
             delay(2000)
             findNavController().navigate(R.id.action_splashFragment_to_homeFragment)
         }
     }
+
+    /**
+     * Rotina de envio de Leads quando o viewModel é instancializado
+     * */
 
     private fun leadRoutine() {
         lifecycleScope.launchWhenStarted {

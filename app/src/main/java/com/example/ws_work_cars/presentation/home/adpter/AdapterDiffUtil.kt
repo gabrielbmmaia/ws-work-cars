@@ -5,7 +5,8 @@ import com.example.ws_work_cars.domain.model.Car
 
 
 /**
- * Classe auxiliar do adapter
+ * Classe que auxilia o adapter a ter uma melhor performance
+ * quando for adicionado itens à lista
  * */
 
 class AdapterDiffUtil(

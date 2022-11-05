@@ -15,6 +15,7 @@ class App : Application() {
         /**
          * Iniciando koin no aplicativo
          * */
+
         startKoin {
             androidContext(this@App)
         }
@@ -22,6 +23,7 @@ class App : Application() {
         /**
          * Carregamento de módulos do koin
          * */
+
         DataModule.load()
         DomainModule.load()
         PresentationModule.load()

@@ -16,7 +16,7 @@ object DomainModule {
     }
 
     /**
-     * A dependencia de repository está vindo do DataModule
+     * Módulo com todas as dependencias dos Use_Cases
      * */
 
     private fun useCaseModule(): Module {
@@ -30,7 +30,12 @@ object DomainModule {
 
             factory { NameValidationUseCase() }
 
-            factory { LeadValidationUseCase(emailValidationUseCase = get(), nameValidationUseCase = get()) }
+            factory {
+                LeadValidationUseCase(
+                    emailValidationUseCase = get(),
+                    nameValidationUseCase = get()
+                )
+            }
 
             factory { SendLeadRoutineUseCase(repository = get()) }
         }

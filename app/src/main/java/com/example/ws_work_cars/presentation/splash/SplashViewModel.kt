@@ -14,6 +14,10 @@ class SplashViewModel(
         sendLeadRoutine()
     }
 
+    /**
+     * Controle de envio de leads
+     * */
+
     private fun sendLeadRoutine() {
 
         viewModelScope.launch(IO) {

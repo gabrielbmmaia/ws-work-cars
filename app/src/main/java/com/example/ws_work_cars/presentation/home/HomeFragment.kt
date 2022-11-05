@@ -37,11 +37,13 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         toLeadFragment()
     }
 
+    /**
+     * A tela de início é atualizada de acordo com os diferentes estados
+     * */
+
     private fun updateUi() {
         lifecycleScope.launchWhenStarted {
-
             viewModel.carListState.collect { state ->
-
                 when (state) {
 
                     is CarListState.Error -> {
@@ -52,24 +54,19 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
                             Toast.LENGTH_SHORT
                         ).show()
                     }
-
                     is CarListState.Success -> {
                         _binding.linearLayout.isVisible = false
                         _binding.homeRecyclerview.isVisible = true
                         adapter.setDataList(state.data)
 
                     }
-
                     CarListState.Loading -> {
                         _binding.homeRecyclerview.isVisible = false
                         _binding.linearLayout.isVisible = true
                     }
-
                     else -> {}
                 }
-
             }
-
         }
     }
 
@@ -77,6 +74,10 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         adapter = HomeAdapter()
         _binding.homeRecyclerview.adapter = this.adapter
     }
+
+    /**
+     * Está sendo enviado como argumento o carro clicado
+     * */
 
     private fun toLeadFragment() {
         adapter.onItemClicked = { car ->

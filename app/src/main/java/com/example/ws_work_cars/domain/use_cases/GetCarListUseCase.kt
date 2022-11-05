@@ -7,6 +7,10 @@ import com.example.ws_work_cars.domain.repository.CarRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 
+/**
+ * Classe para tratamento da chamda de Api
+ * */
+
 class GetCarListUseCase(
     private val repository: CarRepository
 ) {
@@ -18,8 +22,8 @@ class GetCarListUseCase(
             emit(Resource.Success(carList))
 
         } catch (e: Exception) {
-            Log.e("GetCarUseCase", e.message ?: "Ocorreu um Error")
 
+            Log.e("GetCarUseCase", e.message ?: "Ocorreu um Error")
             emit(Resource.Error("Ocorreu um Error"))
 
         }

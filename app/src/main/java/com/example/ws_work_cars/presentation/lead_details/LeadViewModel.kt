@@ -2,10 +2,10 @@ package com.example.ws_work_cars.presentation.lead_details
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.ws_work_cars.domain.use_cases.util.ValidationResult
 import com.example.ws_work_cars.domain.model.Lead
 import com.example.ws_work_cars.domain.use_cases.LeadValidationUseCase
 import com.example.ws_work_cars.domain.use_cases.SaveLeadUseCase
+import com.example.ws_work_cars.domain.use_cases.util.ValidationResult
 import kotlinx.coroutines.Dispatchers.IO
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -16,6 +16,10 @@ class LeadViewModel(
     private val leadValidation: LeadValidationUseCase
 ) : ViewModel() {
 
+    /**
+     * Variáveis observáveis
+     * */
+
     private val _emailState = MutableStateFlow<LeadState>(LeadState.Initial)
     val emailState: StateFlow<LeadState> get() = _emailState
 
@@ -25,10 +29,18 @@ class LeadViewModel(
     private val _leadState = MutableStateFlow<LeadState>(LeadState.Initial)
     val leadState: StateFlow<LeadState> get() = _leadState
 
+    /**
+     * Função para checar os dados enviados pela View
+     * */
+
     fun saveLead(carId: Long, nomeLead: String, emailLead: String) {
         viewModelScope.launch(IO) {
             leadValidation(email = emailLead, name = nomeLead).collect { result ->
                 when (result) {
+
+                    /**
+                     * Controle da caixa de e-mail
+                     * */
 
                     is ValidationResult.EmailError -> {
 
@@ -42,6 +54,11 @@ class LeadViewModel(
                             LeadState.Success()
 
                     }
+
+                    /**
+                     * Controle da caixa de nome
+                     * */
+
                     is ValidationResult.NameError -> {
 
                         _nameState.value =
@@ -54,6 +71,12 @@ class LeadViewModel(
                             LeadState.Success()
 
                     }
+
+                    /**
+                     * Controle para em caso de sucesso um Lead ser criado
+                     * com o saveLeadUseCase
+                     * */
+
                     is ValidationResult.Success -> {
 
                         _emailState.value =
