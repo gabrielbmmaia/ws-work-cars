@@ -28,7 +28,6 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     ): View {
         _binding = FragmentHomeBinding.inflate(inflater)
         initRecyclerView()
-//        sendLeadRoutine()
         return _binding.root
     }
 
@@ -77,12 +76,6 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     private fun initRecyclerView() {
         adapter = HomeAdapter()
         _binding.homeRecyclerview.adapter = this.adapter
-    }
-
-    private fun sendLeadRoutine() {
-        lifecycleScope.launchWhenCreated {
-            viewModel.sendLeadToApi()
-        }
     }
 
     private fun toLeadFragment() {

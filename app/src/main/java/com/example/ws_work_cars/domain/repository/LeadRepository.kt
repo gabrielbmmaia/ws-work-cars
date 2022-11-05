@@ -6,6 +6,10 @@ interface LeadRepository {
 
     suspend fun saveLead(lead: Lead)
 
-    suspend fun sendLeadToApi()
+    suspend fun getLeads(): List<Lead>
+
+    suspend fun sendLeadsToApi(leads: List<Lead>): Boolean
+
+    suspend fun clearDataLeads()
 
 }

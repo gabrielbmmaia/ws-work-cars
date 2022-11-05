@@ -11,8 +11,9 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 
 class HomeViewModel(
-    private val repository: LeadRepository,
+
     private val carListUseCase: GetCarListUseCase
+
 ) : ViewModel() {
 
     /**
@@ -54,12 +55,6 @@ class HomeViewModel(
                     }
                 }
             }
-        }
-    }
-
-    fun sendLeadToApi() {
-        viewModelScope.launch(IO) {
-            repository.sendLeadToApi()
         }
     }
 }
