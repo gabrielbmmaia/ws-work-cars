@@ -2,12 +2,13 @@ package com.example.ws_work_cars.presentation.splash
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.ws_work_cars.domain.use_cases.SendLeadRoutineUseCase
+import com.example.ws_work_cars.domain.useCases.LeadUseCase
+import com.example.ws_work_cars.domain.useCases.SendLeadRoutineUseCase
 import kotlinx.coroutines.Dispatchers.IO
 import kotlinx.coroutines.launch
 
 class SplashViewModel(
-    private val sendLeadRoutine: SendLeadRoutineUseCase
+    private val leadUseCase: LeadUseCase
 ) : ViewModel() {
 
     init {
@@ -19,13 +20,8 @@ class SplashViewModel(
      * */
 
     private fun sendLeadRoutine() {
-
         viewModelScope.launch(IO) {
-
-            sendLeadRoutine.execute()
-
+            leadUseCase.sendLeadRoutine.execute()
         }
-
     }
-
 }

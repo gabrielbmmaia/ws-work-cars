@@ -19,9 +19,6 @@ interface CarService {
 
     @POST("cars/leads")
     suspend fun sendLead(
-
         @Body leads: List<Lead>
-
     ): Response<LeadRequest>
-
 }

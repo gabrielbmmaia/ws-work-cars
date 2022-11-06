@@ -31,7 +31,7 @@
     </fragment>
     <fragment
         android:id="@+id/leadFragment"
-        android:name="com.example.ws_work_cars.presentation.lead_details.LeadFragment"
+        android:name="com.example.ws_work_cars.presentation.lead.LeadFragment"
         android:label="Tenho Interesse"
         tools:layout="@layout/fragment_lead" >
         <argument

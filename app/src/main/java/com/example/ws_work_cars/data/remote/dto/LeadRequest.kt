@@ -5,7 +5,5 @@ package com.example.ws_work_cars.data.remote.dto
  * */
 
 data class LeadRequest(
-
     val status: String?
-
 )

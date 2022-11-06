@@ -1,6 +1,6 @@
-package com.example.ws_work_cars.domain.use_cases
+package com.example.ws_work_cars.domain.useCases
 
-import com.example.ws_work_cars.domain.use_cases.util.ValidationResult
+import com.example.ws_work_cars.domain.useCases.util.ValidationResult
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 
@@ -28,11 +28,9 @@ class LeadValidationUseCase(
          * */
 
         if (emailValidation.successful) {
-
             emit(ValidationResult.EmailSuccess)
 
         } else {
-
             emit(ValidationResult.EmailError(emailValidation.errorMessage!!))
         }
 
@@ -42,11 +40,9 @@ class LeadValidationUseCase(
          * */
 
         if (nameValidation.successful) {
-
             emit(ValidationResult.NameSuccess)
 
         } else {
-
             emit(ValidationResult.NameError(nameValidation.errorMessage!!))
         }
 
@@ -55,7 +51,6 @@ class LeadValidationUseCase(
          * */
 
         if (emailValidation.successful && nameValidation.successful) {
-
             emit(ValidationResult.Success("$name, seus dados foram enviados"))
         }
     }

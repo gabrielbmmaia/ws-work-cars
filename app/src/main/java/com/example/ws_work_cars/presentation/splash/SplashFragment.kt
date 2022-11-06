@@ -29,10 +29,6 @@ class SplashFragment : Fragment(R.layout.fragment_splash) {
         savedInstanceState: Bundle?
     ): View {
 
-        /**
-         * Execução da rotina de envio de leads
-         * */
-
         leadRoutine()
 
         _binding = FragmentSplashBinding.inflate(inflater)
@@ -50,7 +46,6 @@ class SplashFragment : Fragment(R.layout.fragment_splash) {
 
     private fun toHomeFragment() {
         lifecycleScope.launch {
-
             delay(2000)
             findNavController().navigate(R.id.action_splashFragment_to_homeFragment)
         }

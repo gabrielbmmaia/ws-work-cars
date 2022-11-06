@@ -1,7 +1,7 @@
 package com.example.ws_work_cars.presentation.di
 
 import com.example.ws_work_cars.presentation.home.HomeViewModel
-import com.example.ws_work_cars.presentation.lead_details.LeadViewModel
+import com.example.ws_work_cars.presentation.lead.LeadViewModel
 import com.example.ws_work_cars.presentation.splash.SplashViewModel
 import org.koin.core.context.loadKoinModules
 import org.koin.core.module.Module
@@ -17,7 +17,6 @@ object PresentationModule {
         loadKoinModules(viewModelModule())
     }
 
-
     /**
      * Módulos das ViewModels do aplicativo.
      * */
@@ -26,11 +25,11 @@ object PresentationModule {
 
         return module {
 
-            factory { HomeViewModel(carListUseCase = get()) }
+            factory { HomeViewModel(carList = get()) }
 
-            factory { LeadViewModel(saveLeadUseCase = get(), leadValidation = get()) }
+            factory { LeadViewModel(leadUseCase = get()) }
 
-            factory { SplashViewModel(sendLeadRoutine = get()) }
+            factory { SplashViewModel(leadUseCase = get()) }
         }
     }
 }

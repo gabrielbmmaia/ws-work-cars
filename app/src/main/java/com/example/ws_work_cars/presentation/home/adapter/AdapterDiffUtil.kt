@@ -1,4 +1,4 @@
-package com.example.ws_work_cars.presentation.home.adpter
+package com.example.ws_work_cars.presentation.home.adapter
 
 import androidx.recyclerview.widget.DiffUtil
 import com.example.ws_work_cars.domain.model.Car

@@ -1,7 +1,7 @@
-package com.example.ws_work_cars.domain.use_cases
+package com.example.ws_work_cars.domain.useCases
 
 import android.util.Patterns
-import com.example.ws_work_cars.domain.use_cases.util.Validate
+import com.example.ws_work_cars.domain.useCases.util.Validate
 
 /**
  * Classe para validar se um e-mail é valido.
@@ -19,7 +19,6 @@ class EmailValidationUseCase {
                 successful = false,
                 errorMessage = "Digite um e-mail"
             )
-
         }
 
         if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
@@ -28,13 +27,7 @@ class EmailValidationUseCase {
                 successful = false,
                 errorMessage = "Digite um e-mail válido"
             )
-
         }
-
-        return Validate(
-            successful = true
-        )
-
+        return Validate(successful = true)
     }
-
 }

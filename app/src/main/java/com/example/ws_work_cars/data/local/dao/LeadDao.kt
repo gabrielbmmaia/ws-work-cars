@@ -34,5 +34,4 @@ interface LeadDao {
 
     @Query("DELETE FROM LeadDb")
     suspend fun clearDb()
-
 }

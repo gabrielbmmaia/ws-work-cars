@@ -34,13 +34,10 @@ class LeadRepositoryImpl(
      * */
 
     override suspend fun getLeads(): List<Lead> {
-
         val leads = leadDao.getLeads().map { leadDb ->
             leadDb.toLead()
         }
-
         return leads
-
     }
 
     /**
@@ -48,11 +45,8 @@ class LeadRepositoryImpl(
      * */
 
     override suspend fun sendLeadsToApi(leads: List<Lead>): Boolean {
-
         val request = service.sendLead(leads)
-
         return request.isSuccessful
-
     }
 
     /**
@@ -60,9 +54,6 @@ class LeadRepositoryImpl(
      * */
 
     override suspend fun clearDataLeads() {
-
         leadDao.clearDb()
-
     }
-
 }

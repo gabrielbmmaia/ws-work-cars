@@ -62,7 +62,6 @@ data class CarDto(
         if (valorConvertido < 1000) {
             return formatador.format(valorConvertido * 1000).toString()
         }
-
         return formatador.format(valorConvertido).toString()
     }
 }

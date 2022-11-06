@@ -1,4 +1,4 @@
-package com.example.ws_work_cars.presentation.lead_details
+package com.example.ws_work_cars.presentation.lead
 
 sealed class LeadState {
 

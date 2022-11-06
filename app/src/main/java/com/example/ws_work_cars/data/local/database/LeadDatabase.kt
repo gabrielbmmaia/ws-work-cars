@@ -34,11 +34,8 @@ abstract class LeadDatabase : RoomDatabase() {
         fun getInstance(context: Context): LeadDatabase {
 
             synchronized(this) {
-
                 var instance = INSTANCE
-
                 if (instance == null) {
-
                     instance = Room.databaseBuilder(
                         context.applicationContext,
                         LeadDatabase::class.java,

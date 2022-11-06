@@ -1,19 +1,19 @@
-package com.example.ws_work_cars.presentation.lead_details
+package com.example.ws_work_cars.presentation.lead
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.ws_work_cars.domain.model.Lead
-import com.example.ws_work_cars.domain.use_cases.LeadValidationUseCase
-import com.example.ws_work_cars.domain.use_cases.SaveLeadUseCase
-import com.example.ws_work_cars.domain.use_cases.util.ValidationResult
+import com.example.ws_work_cars.domain.useCases.LeadUseCase
+import com.example.ws_work_cars.domain.useCases.LeadValidationUseCase
+import com.example.ws_work_cars.domain.useCases.SaveLeadUseCase
+import com.example.ws_work_cars.domain.useCases.util.ValidationResult
 import kotlinx.coroutines.Dispatchers.IO
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 
 class LeadViewModel(
-    private val saveLeadUseCase: SaveLeadUseCase,
-    private val leadValidation: LeadValidationUseCase
+    private val leadUseCase: LeadUseCase
 ) : ViewModel() {
 
     /**
@@ -35,7 +35,7 @@ class LeadViewModel(
 
     fun saveLead(carId: Long, nomeLead: String, emailLead: String) {
         viewModelScope.launch(IO) {
-            leadValidation(email = emailLead, name = nomeLead).collect { result ->
+            leadUseCase.leadValidation(email = emailLead, name = nomeLead).collect { result ->
                 when (result) {
 
                     /**
@@ -43,16 +43,13 @@ class LeadViewModel(
                      * */
 
                     is ValidationResult.EmailError -> {
-
                         _emailState.value =
                             LeadState.Error(errorMessage = result.errorMessage)
-
                     }
-                    ValidationResult.EmailSuccess -> {
 
+                    ValidationResult.EmailSuccess -> {
                         _emailState.value =
                             LeadState.Success()
-
                     }
 
                     /**
@@ -60,16 +57,13 @@ class LeadViewModel(
                      * */
 
                     is ValidationResult.NameError -> {
-
                         _nameState.value =
                             LeadState.Error(errorMessage = result.errorMessage)
-
                     }
-                    ValidationResult.NameSuccess -> {
 
+                    ValidationResult.NameSuccess -> {
                         _nameState.value =
                             LeadState.Success()
-
                     }
 
                     /**
@@ -88,7 +82,7 @@ class LeadViewModel(
                         _leadState.value =
                             LeadState.Success(message = result.message)
 
-                        saveLeadUseCase(
+                        leadUseCase.saveLead(
                             Lead(
                                 carId = carId,
                                 nomeLead = nomeLead,

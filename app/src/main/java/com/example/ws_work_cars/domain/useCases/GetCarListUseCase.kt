@@ -1,4 +1,4 @@
-package com.example.ws_work_cars.domain.use_cases
+package com.example.ws_work_cars.domain.useCases
 
 import android.util.Log
 import com.example.ws_work_cars.core.Resource

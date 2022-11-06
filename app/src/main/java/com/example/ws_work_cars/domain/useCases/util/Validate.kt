@@ -1,4 +1,4 @@
-package com.example.ws_work_cars.domain.use_cases.util
+package com.example.ws_work_cars.domain.useCases.util
 
 /**
  * Classe para auxiliar as validações

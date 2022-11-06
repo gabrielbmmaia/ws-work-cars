@@ -1,4 +1,4 @@
-package com.example.ws_work_cars.presentation.home.adpter
+package com.example.ws_work_cars.presentation.home.adapter
 
 
 import android.view.LayoutInflater
@@ -32,25 +32,19 @@ class HomeAdapter(
             }
         }
 
-        private val modeloCarro = binding.modeloCarro
-        private val marcaCarro = binding.marcaCarro
-        private val corCarro = binding.corCarro
-        private val portasCarro = binding.portasCarro
-        private val combustivelCarro = binding.combustivelCarro
-        private val anoCarro = binding.anoCarro
-        private val valorCarro = binding.valorCarro
-
         fun bindView(car: Car) {
 
             this.car = car
 
-            modeloCarro.text = car.nomeModelo
-            marcaCarro.text = car.marcaNome
-            corCarro.text = car.cor
-            portasCarro.text = car.numPortas
-            combustivelCarro.text = car.combustivel
-            anoCarro.text = car.ano
-            valorCarro.text = car.valorFipe
+            with(binding) {
+                modeloCarro.text = car.nomeModelo
+                marcaCarro.text = car.marcaNome
+                corCarro.text = car.cor
+                portasCarro.text = car.numPortas
+                combustivelCarro.text = car.combustivel
+                anoCarro.text = car.ano
+                valorCarro.text = car.valorFipe
+            }
         }
     }
 

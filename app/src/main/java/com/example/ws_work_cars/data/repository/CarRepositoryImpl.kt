@@ -20,7 +20,6 @@ class CarRepositoryImpl(
     override suspend fun getCarList(): List<Car> {
 
         val serviceReturn = service.getCarList()
-
         return serviceReturn.map { carDto ->
             carDto.toCar()
         }

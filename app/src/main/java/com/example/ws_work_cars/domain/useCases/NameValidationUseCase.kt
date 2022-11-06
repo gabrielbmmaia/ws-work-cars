@@ -1,6 +1,6 @@
-package com.example.ws_work_cars.domain.use_cases
+package com.example.ws_work_cars.domain.useCases
 
-import com.example.ws_work_cars.domain.use_cases.util.Validate
+import com.example.ws_work_cars.domain.useCases.util.Validate
 
 /**
  * Classe para validar se um nome é valido.
@@ -20,6 +20,5 @@ class NameValidationUseCase {
         }
 
         return Validate(successful = true)
-
     }
 }
