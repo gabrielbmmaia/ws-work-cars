@@ -7,7 +7,7 @@
 `Dados do Usuário`: Para adquirir os dados do usuário, decidi ter mais um fragment onde ele pode colocar seu nome e e-mail para ser contactado futuramente. <br><br>
 `Tema de cores do Aplicativo`: Em relação as cores do aplicativo, eu optei por utilizar as cores do site da WS Work Sistemas, responsável pela criação deste desafio. <br><br>
 `Validação dos dados do Usuário`: Para evitar o envio de dados inconsistentes para a API, o usuário só consegue se tornar um Lead quando seus dados forem validados como "válidos" . <br><br>
-`Rotina de envio de Leads`: Na primeira tela do aplicativo é disparado a funcionalidade de envio de leads que consiste em: Buscar no banco de dados local a lista de leads salva > Checar se essa lista não está vazia para evitar envios de listas vazias para a Api > Em caso da listar não estar vazia é feito o envio desses leads para a Api > Em caso de sucesso do envio de leads, o banco de dados local é limpo. <br>
+`Rotina de envio de Leads`: Na primeira tela do aplicativo é disparado a funcionalidade de envio de leads que consiste em: Buscar no banco de dados local a lista de leads salva > Checar se essa lista não está vazia para evitar envios de listas vazias para a Api > Em caso da lista não estar vazia é feito o envio desses leads para a Api > Em caso de sucesso do envio de leads, o banco de dados local é limpo. <br>
 
 ## :iphone: Layouts do Projeto
 ![layouts-ws-cars](https://user-images.githubusercontent.com/109977155/200141335-430be63d-a030-491a-a462-722afe2a4c0a.png)
